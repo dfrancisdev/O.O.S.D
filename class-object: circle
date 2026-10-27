@@ -1,0 +1,38 @@
+#include <iostream>
+
+class Circle {
+private:
+    double x_coord;  // Private (-)
+    double y_coord;  // Private (-)
+
+protected:
+    double radius;   // Protected (#)
+
+public:
+    // Constructor to initialize attributes
+    Circle(double x, double y, double r) {
+        x_coord = x;
+        y_coord = y;
+        radius = r;
+    }
+
+    // Public (+) operation to find area
+    double findArea() {
+        return 3.14159 * (radius * radius);
+    }
+
+    // Public (+) operation to scale the circle
+    void scale(double factor) {
+        radius *= factor;
+    }
+};
+
+int main() {
+    Circle myCircle(2.0, 3.0, 4.0);
+    std::cout << "Initial Area: " << myCircle.findArea() << std::endl;
+    
+    myCircle.scale(2.0);
+    std::cout << "Scaled Area: " << myCircle.findArea() << std::endl;
+    
+    return 0;
+}
